@@ -4,7 +4,6 @@ import './Login.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { Link, useHistory, useLocation } from 'react-router-dom';
-import useAuth from '../../../hooks/useAuth';
 import useFirebase from '../../../hooks/useFirebase';
 
 const Login = () => {

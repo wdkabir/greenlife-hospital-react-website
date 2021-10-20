@@ -1,6 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route,} from 'react-router-dom';
 import Header from './components/sheared/Header/Header';

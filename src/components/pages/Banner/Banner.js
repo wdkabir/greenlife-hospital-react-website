@@ -12,7 +12,7 @@ const Banner = () => {
             <section className="banner">
             <Container>
             <Row>
-                <Col>
+                <Col className="mt-5">
                     <p>SAVE TIME. FEEL BETTER.</p>
                     <h3>Skip The Waiting Room! Register Online Before You Arrive.</h3>
                     <Button variant="success" size="lg">{appointmentIcon} Book an Appointment</Button>

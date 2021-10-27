@@ -20,7 +20,7 @@ const Footer = () => {
 
                     <div className="col-xs-12 col-sm-6">
                         <div className="social-icon text-center">
-                            <a href="https://facebook.com/mdkabirhossain" target="_blank" rel="noopener noreferrer"><span>{facebookIcon}</span></a>
+                            <a href="https://facebook.com/wdkabirhossain" target="_blank" rel="noopener noreferrer"><span>{facebookIcon}</span></a>
                             <a href="https://instagram.com/wdkabir" target="_blank" rel="noopener noreferrer"><span>{instagramIcon}</span></a>
                             <a href="https://github.com/wdkabir" target="_blank" rel="noopener noreferrer"><span>{githubIcon}</span></a>
                         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Doctor = (props) => {
     const {img, name, title} = props.doctor
@@ -15,7 +16,7 @@ const Doctor = (props) => {
                 </Card.Body>
                 <Card.Footer className="d-flex flex-column flex-md-row card-footer justify-content-between">
                     <Button variant="outline-success"> See Details</Button>
-                    <Button variant="outline-success"> Appointment</Button>
+                    <Link to="/appointment"><Button variant="outline-success"> Appointment</Button></Link>
                 </Card.Footer>
             </Card>
             </Col>

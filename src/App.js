@@ -14,6 +14,7 @@ import AuthProvider from './contexts/AuthProvider';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import Singleservice from './components/pages/SingleService/Singleservice';
 import Footer from './components/sheared/Footer/Footer';
+import NotFound from './components/pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -51,6 +52,9 @@ function App() {
             </Route>
             <Route exact path="/appointment">
               <Appointment></Appointment>
+            </Route>
+            <Route exact path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
           <Footer></Footer>

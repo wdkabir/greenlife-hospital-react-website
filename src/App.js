@@ -8,6 +8,7 @@ import Services from './components/pages/Services/Services';
 import Footer from './components/pages/Footer/Footer';
 import Login from './components/pages/Login/Login';
 import Registation from './components/pages/Registation/Registation';
+import Appointment from './components/pages/Appointment/Appointment';
 
 function App() {
   // const element = <FontAwesomeIcon icon={faCoffee} />
@@ -33,6 +34,9 @@ function App() {
             </Route>
             <Route exact path="/registration">
               <Registation></Registation>
+            </Route>
+            <Route exact path="/appointment">
+              <Appointment></Appointment>
             </Route>
             
           </Switch>

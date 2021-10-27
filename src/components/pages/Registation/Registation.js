@@ -4,9 +4,13 @@ import './Registation.css';
 // FontAwesome Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import useFirebase from '../../../hooks/useFirebase';
+import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 
 const Registation = () => {
+    const signInIcon = <FontAwesomeIcon icon={faSignInAlt} />
+    const googleIcon = <FontAwesomeIcon icon={faGoogle} />
     const { signInUsingGoogle, setError, setUserName, registerNewUser, handleNameChange, handleEmailChange, handlePasswordChange } = useFirebase();
     const History = useHistory();
     const Location = useLocation();
@@ -23,37 +27,52 @@ const Registation = () => {
                 setError(error.message);
             })
     }
+    const handleGoogleregistration = () => {
+        signInUsingGoogle();
+        History.push(Redirect);
+    }
 
-    const Google = <FontAwesomeIcon icon={faGoogle} />
 
     return (
         <div>
             {/* Registation section starts  */}
 
-            <section className="registation" id="registation">
+             <Container>
+                <div className="col-md-4"></div>
+                <div className="col-md-4 mx-auto my-5">
+                <Form className="registration" onSubmit={handleRegister}>
+                        <Form.Text className="text-center">
+                            <h1 className="py-3">Registration</h1>
+                        </Form.Text>
+                
+                    <Form.Group as={Col} controlId="formGridName" className="mb-3">
+                    <Form.Control onBlur={handleNameChange} type="text" placeholder="Name" />
+                    </Form.Group>
+                    <Form.Group as={Col} controlId="formGridEmail" className="mb-3">
+                    <Form.Control onBlur={handleEmailChange} type="email" placeholder="Email" />
+                    </Form.Group>
 
-                <h1 className="heading"> <span>Registation</span></h1>
-
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <form onSubmit={handleRegister}>
-                            <input onBlur={handleNameChange} type="text" placeholder="Enter your name" className="box" required />
-                            <input onBlur={handleEmailChange} type="email" placeholder="Enter your email" className="box" required />
-                            <input onBlur={handlePasswordChange} type="password" placeholder="Enter your password" className="box" required />
-                            <input type="submit" value="Registation" className="btn" />
-                            <div className="link">
-                                <Link to="/login">Already a member? Click for Log in</Link>
-                                <div className="share">
-                                    <a href="#0" onClick={signInUsingGoogle}>{Google}</a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                    <Form.Group as={Col} controlId="formGridPassword" className="mb-3">
+                    <Form.Control onBlur={handlePasswordChange} type="password" placeholder="Password" />
+                    </Form.Group>
+                
 
 
+                <Button variant="primary" type="submit" className="w-100">
+                    Sign Up
+                </Button>
+                <div className="link mt-3">
+                                <Button variant="outline-info" onClick={handleGoogleregistration}>
+                            {googleIcon}</Button>
+                        </div>
+                        <div className="link mt-3">
+                                <Link to="/login"><Button variant="outline-info" type="submit" className="w-100">
+                                Already Have An Account? Login Here {signInIcon}</Button></Link>
+                        </div>
+            </Form>
                 </div>
-
-            </section>
+                <div className="col-md-4"></div>
+            </Container>
 
             {/* Registation section ends  */}
         </div>

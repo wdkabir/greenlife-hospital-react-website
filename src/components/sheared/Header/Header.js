@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Container, Nav, Navbar, NavDropdown, NavLink } from 'react-bootstrap';
+import { Button, Container, Nav, Navbar, NavDropdown} from 'react-bootstrap';
+import { NavLink } from 'react-router-dom';
 import useFirebase from '../../../hooks/useFirebase';
 import logo from '../../../images/greenlife-hospital-logo.png';
 
@@ -10,7 +11,7 @@ const Header = () => {
         <>
             <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
   <Container>
-  <Navbar.Brand to="#home">
+  <Navbar.Brand to="/home">
       <img
         src={logo}
         width="200"
@@ -35,6 +36,9 @@ const Header = () => {
                                     <NavDropdown.Item><input onClick={logout} type="submit" value="LogOut" className="btn" /></NavDropdown.Item>
                                 </NavDropdown>
                             }
+                            <Nav.Link as={NavLink} to="/appointment">
+                                <Button variant="success" className="m-1 menu-font-size">Appointment</Button>
+                            </Nav.Link>
       </Nav>
     </Navbar.Collapse>
   </Container>

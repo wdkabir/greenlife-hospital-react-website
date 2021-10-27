@@ -3,10 +3,14 @@ import './Login.css';
 // FontAwesome Icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
+import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
 import { Link, useHistory, useLocation } from 'react-router-dom';
 import useFirebase from '../../../hooks/useFirebase';
+import { Button, Container, Form } from 'react-bootstrap';
 
 const Login = () => {
+    const googleIcon = <FontAwesomeIcon icon={faGoogle} />
+    const signInIcon = <FontAwesomeIcon icon={faSignInAlt} />
     const { signInUsingGoogle, processLogin, handleEmailChange, handlePasswordChange } = useFirebase();
     const History = useHistory();
     const Location = useLocation();
@@ -17,35 +21,44 @@ const Login = () => {
         processLogin();
         History.push(Redirect);
     }
-
-    const Google = <FontAwesomeIcon icon={faGoogle} />
+    const handleGoogleLogin = () => {
+        signInUsingGoogle();
+        History.push(Redirect);
+    }
 
     return (
         <div>
-            {/* Login section starts  */}
+            <Container>
+                <div className="col-md-4"></div>
+                <div className="col-md-4 mx-auto my-5">
+                <Form className="login" onSubmit={handleLogin}>
+                        <Form.Text className="text-center">
+                            <h1 className="py-3">Login Here</h1>
+                        </Form.Text>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Control onBlur={handleEmailChange} type="email" placeholder="Email" />
+                    </Form.Group>
 
-            <section className="login" id="login">
-
-                <h1 className="heading"> <span>Log</span> In </h1>
-
-                <div className="row justify-content-center">
-                    <div className="col-md-8">
-                        <form onSubmit={handleLogin}>
-                            <input onBlur={handleEmailChange} type="email" placeholder="Enter your email" className="box" required />
-                            <input onBlur={handlePasswordChange} type="password" placeholder="Enter your password" className="box" required />
-                            <input type="submit" value="LogIn" className="btn" />
-                            <div className="link">
-                                <Link to="/registation">Not a member? Click for Sign up</Link>
-                                <div className="share">
-                                    <a href="#0" onClick={signInUsingGoogle}>{Google}</a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-
+                    <Form.Group className="mb-3" controlId="formBasicPassword">
+                        <Form.Control onBlur={handlePasswordChange} type="password" placeholder="Password" />
+                    </Form.Group>
+                    
+                    <Button variant="primary" type="submit" className="w-100">
+                        Login {signInIcon}
+                    </Button>
+                        <div className="link mt-3">
+                                <Button variant="outline-info" onClick={handleGoogleLogin}>
+                            {googleIcon}</Button>
+                        </div>
+                        <div className="link mt-3">
+                                <Link to="/registration"><Button variant="outline-info" type="submit" className="w-100">
+                                Not a member? Sign up Here</Button></Link>
+                        </div>
+                    </Form>
                 </div>
-
-            </section>
+                <div className="col-md-4"></div>
+            
+            </Container>
 
             {/* Login section ends  */}
 

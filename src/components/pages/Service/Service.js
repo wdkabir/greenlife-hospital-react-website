@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button, Card, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const Service = (props) => {
-    const {img, title, description} = props.service
+    const {id, img, title, description} = props.service
     return (
         <div>
             <Col>
@@ -14,8 +15,8 @@ const Service = (props) => {
                 </Card.Text>
                 </Card.Body>
                 <Card.Footer className="d-flex flex-column flex-md-row card-footer justify-content-between">
-                    <Button variant="outline-success"> See Details</Button>
-                    <Button variant="outline-success"> Appointment</Button>
+                    <Link to={`/singleservice/${id}`}><Button variant="outline-success"> See Details</Button></Link>
+                    <Link to="/appointment"><Button variant="outline-success"> Appointment</Button></Link>
                 </Card.Footer>
             </Card>
             </Col>

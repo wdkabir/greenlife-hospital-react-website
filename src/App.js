@@ -5,15 +5,20 @@ import Header from './components/sheared/Header/Header';
 import Home from './components/pages/Home/Home';
 import Doctors from './components/pages/Doctors/Doctors';
 import Services from './components/pages/Services/Services';
-import Footer from './components/pages/Footer/Footer';
 import Login from './components/pages/Login/Login';
 import Registation from './components/pages/Registation/Registation';
 import Appointment from './components/pages/Appointment/Appointment';
+import Contact from './components/pages/Contact/Contact';
+import About from './components/pages/About/About';
+import AuthProvider from './contexts/AuthProvider';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Singleservice from './components/pages/SingleService/Singleservice';
+import Footer from './components/sheared/Footer/Footer';
 
 function App() {
-  // const element = <FontAwesomeIcon icon={faCoffee} />
   return (
     <div className="App">
+        <AuthProvider>
         <Router>
           <Header></Header>
           <Switch>
@@ -26,8 +31,17 @@ function App() {
             <Route exact path="/services">
               <Services></Services>
             </Route>
+            <PrivateRoute exact path="/singleservice/:id">
+              <Singleservice></Singleservice>
+            </PrivateRoute>
             <Route exact path="/doctors">
               <Doctors></Doctors>
+            </Route>
+            <Route exact path="/about">
+              <About></About>
+            </Route>
+            <Route exact path="/contact">
+              <Contact></Contact>
             </Route>
             <Route exact path="/login">
               <Login></Login>
@@ -38,10 +52,10 @@ function App() {
             <Route exact path="/appointment">
               <Appointment></Appointment>
             </Route>
-            
           </Switch>
           <Footer></Footer>
         </Router>
+        </AuthProvider>
              
             
             

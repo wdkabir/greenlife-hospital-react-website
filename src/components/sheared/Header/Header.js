@@ -25,10 +25,11 @@ const Header = () => {
       <Nav className="ms-auto align-items-center ">
         <NavLink to="/home" className="nav-link" >Home</NavLink>
         <NavLink to="/services" className="nav-link">Services</NavLink>
+        <NavLink to="/doctors" className="nav-link">Doctors</NavLink>
         <NavLink to="/about" className="nav-link">About</NavLink>
         <NavLink to="/contact" className="nav-link">Contact</NavLink>
         {!user?.email && <Nav.Link as={NavLink} to="/login">
-                                <Button variant="success" className="m-1 menu-font-size">Log In/Registation</Button>
+                                <Button variant="success" className="m-1 menu-font-size">Log In</Button>
                             </Nav.Link>
                             }
                             {user?.email &&

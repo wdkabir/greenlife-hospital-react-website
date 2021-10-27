@@ -4,6 +4,7 @@ import { faUserAlt } from '@fortawesome/free-solid-svg-icons'
 import { Button, Col, Container, Row } from 'react-bootstrap';
 // import banner from '../../../images/banner/banner-image.jpg';
 import './Banner.css';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     const appointmentIcon = <FontAwesomeIcon icon={faUserAlt} />
@@ -15,7 +16,10 @@ const Banner = () => {
                 <Col className="mt-5">
                     <p>SAVE TIME. FEEL BETTER.</p>
                     <h3>Skip The Waiting Room! Register Online Before You Arrive.</h3>
-                    <Button to="/appointment" variant="success" size="lg">{appointmentIcon} Book an Appointment</Button>
+                    <div className="my-3">
+                        <Link to="/appointment"><Button variant="success" size="lg">{appointmentIcon} Book an Appointment</Button></Link>
+                    </div>
+                    
                 </Col>
             </Row>
             </Container>

@@ -14,7 +14,7 @@ const Footer = () => {
                 <div className="row">
                     <div className="col-xs-12 col-sm-6">
                         <div className="copyright">
-                            <p><span className="text-info fw-bolder">Greenlife Hospital</span> © Copyright 2021. All Rights Reserved.<span className="text-info fw-bolder"> Development By Kabir</span></p>
+                            <p><span className="text-info fw-bolder">Greenlife Hospital</span> © Copyright 2021. All Rights Reserved.<span className="text-info fw-bolder"> Development By Kabir Hossain</span></p>
                         </div>
                     </div>
 
